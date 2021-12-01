@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Halaman Utama</title>
+	<title>Jadwal Kajian</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/kajian.css">
 	<style>
@@ -16,26 +16,37 @@
 			background-repeat: no-repeat;
 		}
 
+		.hilang {
+			display: none;
+		}
+
 	</style>
 </head>
 
 <body class="body bg-light">
 
 	<nav class="navbar fixed-top navbar-light bg-dark container-fluid">
-		<a class="navbar-brand text-light font-weight-bold"><img src="img/logobm_putih.png" height="35" alt="logo bm"
-				srcset=""></a>
+		<div class="col-sm-1">
+			<a class="navbar-brand text-light font-weight-bold"><img src="img/logobm_putih.png" height="35"
+					alt="logo bm" srcset=""></a>
+		</div>
+		<div class="col-sm-11">
+			<h3 class="text-light text-center text-uppercase font-weight-bold">Jadwal Kajian
+				Ilmiah Bondowoso</h3>
+		</div>
+
 	</nav>
 	<br><br><br><br>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col">
 				<div class="card bg-transparent shadow p-4">
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col text-center">
 							<h3 class="card-title text-light text-center text-uppercase font-weight-bold">Jadwal Kajian
 								Ilmiah Bondowoso</h3>
 						</div>
-					</div>
+					</div> -->
 					<div class="row">
 						<div class="col-sm-4">
 							<div class="card border-0 shadow-lg testimonial-card mt-2 mb-3">
@@ -67,8 +78,9 @@
 												Kajian Kitab Ushul Tsalasah<br>
 												Ustadz Izhar Assahmy
 												<li>Selasa</li>
-												setiap pekan<br>
-												Kajian Syarah Kitab Tauhid<br>
+												setiap 2 pekan sekali<br>
+												Kajian Kitab Maqolatul Islamiyyin<br>
+												(Prinsip dasar Ahlussunah Waljama'ah)<br>
 												Ustadz Muhammad Yasir,lc.,M.Hi
 												<li>Sabtu</li>
 												setiap 2 Pekan sekali<br>
@@ -108,7 +120,7 @@
 												Ustadz Afif Ibrahim, S.Ag
 												<li>Ahad</li>
 												setiap 2 pekan sekali (Pekan 2 dan 4)<br>
-												Kajian Kitab Syarah Tauhid<br>
+												Kajian Kitab Kasyfus Syubuhat<br>
 												Ustadz Agus Barnianto
 												<li>Senin</li>
 												Kajian Bahasa Arab Untuk Pemula<br>
@@ -144,10 +156,12 @@
 									<div class="collapse" id="furqon">
 										<div class="card card-body text-start">
 											<ol>
-												<li>Kamis</li>
-												Kajian Kitab Fiqh (Waris)<br>
-												Ustadz Muhammad Yasir,lc.,M.Hi
 												<li>Jumat</li>
+												Pekan 1 dan 3<br>
+												Kajian Kitab<br>
+												Ustadz Muhammad Ayyub
+												<li>Jumat</li>
+												Pekan 2 dan 4<br>
 												Kajian Kitab Tafsir Juz Amma<br>
 												Ustadz Subaidi, S.Ag
 											</ol>
@@ -251,15 +265,10 @@
 									<div class="collapse" id="sobirin">
 										<div class="card card-body text-start">
 											<ol>
-												<li>Ahad</li>
-												Kajian Kitab Riyadus Shalihin<br>
-												Ustad Afif Ibrahim, S.Ag
-												<li>Senin</li>
-												Kajian Kitab Riyadus Shalihin<br>
-												Ustad Afif Ibrahim, S.Ag
-												<li>Selasa</li>
-												Kajian Kitab Riyadus Shalihin<br>
-												Ustad Afif Ibrahim, S.Ag
+												<li>Jum'at</li>
+												setiap pekan, Ba'da Maghrib - selesai<br>
+												Kajian Kitab Tauhid/Kitab Arbain Nawawi<br>
+												Ustadz Bagus Ekodono, S.PDi
 											</ol>
 										</div>
 									</div>
@@ -273,46 +282,21 @@
 
 	</div>
 	<br><br>
-	<?php
-    include 'footer.php';
-
-    ?>
-
 
 	<script src="js/bootstrap.bundle.js" crossorigin="anonymous"></script>
-	<script src="asset/js/jquery.js"></script>
-	<script src="asset/js/popper.js"></script>
 
-	<script src="asset/dist/sweetalert2.all.min.js"></script>
-	<script src="asset/dist/jquery-3.6.0.min.js"></script>
 	<script>
-		const tombol = document.querySelector('#tombol');
-		tombol.addEventListener('click', function () {
-			// swal({
-			//     title: 'Yakin Mau Logout..?',
-			//     text: 'Anda Akan keluar dari Halaman ini',
-			//     type: 'warning'
-			// })
-			Swal.fire({
-				title: 'Yakin Mau Logout..?',
-				text: "Anda akan keluar dari halaman ini..!",
-				icon: 'question',
-				showCancelButton: true,
-				confirmButtonColor: '#3085d6',
-				cancelButtonColor: '#d33',
-				confirmButtonText: 'Logout..!'
-			}).then((keluar) => {
-				if (keluar.isConfirmed) {
-					document.location.href = 'logout.php';
-					Swal.fire(
-						'SELAMAT..!',
-						'Anda Berhasil Logout...',
-						'success'
-					)
-				}
-
-			})
-		});
+		const daftar_kajian = document.querySelectorAll('.btn-primary');
+		for (let i = 0; i < daftar_kajian.length; i++) {
+			daftar_kajian[i].addEventListener('click', function () {
+				const gambar_mesjid = document.querySelectorAll('.card-up');
+				for (let i = 0; i < gambar_mesjid.length; i++) {}
+				gambar_mesjid[i].classList.toggle('hilang');
+				const alamat = document.getElementsByTagName('h6');
+				for (let i = 0; i < alamat.length; i++) {}
+				alamat[i].classList.toggle('hilang');
+			});
+		}
 
 	</script>
 
