@@ -1,0 +1,34 @@
+@font-face {
+    font-family: font_bagus;
+    src: url(../font/SpecialElite-Regular.ttf);
+}
+@font-face {
+    font-family: font_keren;
+    src: url(../font/Licorice-Regular.ttf);
+}
+@font-face {
+    font-family: font_oke;
+    src: url(../font/Righteous-Regular.ttf);
+}
+
+
+.navtop {
+    font-family: 'font_bagus';
+    color: red !important;
+}
+
+.qari {
+    font-family: 'font_keren';
+    font-weight: 900;
+}
+.judul {
+    font-family: 'font_oke';
+    font-weight: 900;
+}
+.nama_surat{
+    font-family: 'font_keren';
+    font-weight: 900;
+}
+.nama_surat2{
+    font-family: 'font_oke';
+}
